@@ -1,12 +1,12 @@
 // import './App.scss';
 import React from "react";
-import Navigation from "./components/navigation";
+import Navigation from "./components/Navigation";
 function App() {
   const [showMenu, setShowMenu] = React.useState(false);
   return (
     <><header  className="header">
       <div className="container">
-        <Navigation active={showMenu} setActive={setShowMenu}/>
+        {showMenu && <Navigation onClose={() => setShowMenu(false)}/>}
       </div>
     </header>
     <main>
@@ -18,7 +18,7 @@ function App() {
               24 years old, Minsk
             </p>
           </div>
-          <div onClick = {() => setShowMenu(!showMenu)} className="promo__burger-menu">
+          <div onClick = {() => setShowMenu(true)} className="promo__burger-menu">
             <span/>
             </div>
           <div className="promo__image">
